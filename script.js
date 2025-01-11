@@ -8,7 +8,7 @@ const MaxQues = 5;
 let score = 0;
 
 async function fetchData(){
-    const response = await fetch('questions.json')
+    const response = await fetch('cpp.json')
     window.data = await response.json();
     ShowQuestion();
 }
