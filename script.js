@@ -1,6 +1,7 @@
 const ques = document.querySelector(".question")
-const next_btn = document.querySelector("button")
+const next_btn = document.querySelector(".nxt-btn button")
 const options = document.querySelectorAll(".opt")
+const dark_mode = document.querySelector(".heading button")
 
 let currQues = 0;
 const MaxQues = 5;
@@ -11,6 +12,29 @@ async function fetchData(){
     window.data = await response.json();
     ShowQuestion();
 }
+
+const savedTheme = localStorage.getItem("theme");
+
+// Apply the saved theme on page load
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    dark_mode.innerHTML = "☀️"; // Set icon for dark mode
+} else {
+    dark_mode.innerHTML = "🌙"; // Set icon for light mode
+}
+
+// Add event listener to toggle dark mode
+dark_mode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    if (document.body.classList.contains("dark-theme")) {
+        dark_mode.innerHTML = "☀️";
+        localStorage.setItem("theme", "dark"); // Save dark mode preference
+    } else {
+        dark_mode.innerHTML = "🌙";
+        localStorage.setItem("theme", "light"); // Save light mode preference
+    }
+});
 
 
 function check(opt) {
