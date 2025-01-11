@@ -20,7 +20,7 @@ body {
     background: var(--primary-color);
     /* background-color: #121212; */
     /* color: ; */
-    transition: background-color 0.4s ease;
+    transition: background-color 0.2s ease;
 }
 
 .main {
