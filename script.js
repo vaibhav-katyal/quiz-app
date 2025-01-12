@@ -2,13 +2,32 @@ const ques = document.querySelector(".question")
 const next_btn = document.querySelector(".nxt-btn button")
 const options = document.querySelectorAll(".opt")
 const dark_mode = document.querySelector(".heading button")
+const lang = document.querySelector(".lang select")
+const no_of_ques = document.querySelector(".noques select")
 
 let currQues = 0;
-const MaxQues = 5;
+const MaxQues = no_of_ques.value;
 let score = 0;
 
 async function fetchData(){
-    const response = await fetch('cpp.json')
+
+    let response;
+    if(lang.value == "C++"){
+        response = await fetch('cpp.json')
+    }
+    else if(lang.value == "Python"){
+        response = await fetch('python.json')
+    }
+    else if(lang.value == "C"){
+        response = await fetch('c.json')
+    }
+    else if(lang.value == "Java"){
+        response = await fetch('java.json')
+    }
+    else if(lang.value == "JavaScript"){
+        response = await fetch('javascript.json')
+    }
+
     window.data = await response.json();
     ShowQuestion();
 }
@@ -104,10 +123,16 @@ function ShowResults() {
     document.querySelector(".question").style.display = "none";
     document.querySelector(".options").style.display = "none";
 
-    // Reinitialize the event listener for the new Restart button
+    
     document.getElementById("restartBtn").addEventListener("click", () => {
-        location.reload();
-    });
+        currQues = 0;
+        score = 0;
+        document.querySelector(".results").style.display = "none";
+        next_btn.style.display = "block";
+        document.querySelector(".heading").style.display = "flex";
+        document.querySelector(".question").style.display = "block";
+        document.querySelector(".options").style.display = "flex";
+        ShowQuestion();})
 }
 
 fetchData();

@@ -150,6 +150,24 @@ body {
     border-radius: 3px;
 }
 
+.choices{
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+    margin-bottom: 18px;
+    /* border-bottom: 3px solid var(--question-color); */
+}
+
+.choices select{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 4px;
+    padding: 5px;
+}
+
 .results button:hover{
     background-color: #3A3AA1;
 }
