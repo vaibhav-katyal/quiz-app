@@ -30,6 +30,84 @@ body {
     height: 100vh;
 }
 
+.popup{
+    display: block;
+    z-index: 1000;
+    position: fixed;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 10px;
+    width: 28vw;
+    border-radius: 7px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.choices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* gap: 73px; */
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.choices span{
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+.lang, .noques{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.noques{
+    margin-bottom: 6px;
+}
+
+.popup select{
+    width: 100%;
+}
+
+.gen-quiz{
+    text-align: center;
+}
+
+.gen-quiz button{
+    padding: 10px;
+    width: 170px;
+    cursor: pointer;
+    background-color: var(--question-color);
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.gen-quiz button:hover{
+    background-color: #3A3AA1;
+}
+
+.choices select{
+    height: 30px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid var(--question-color);
+}
+
+.popup h2{
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 0px 7px 15px 7px;
+    border-bottom: 3px solid var(--question-color);
+    padding: 0px 0px 5px 0px;
+}
+
 .card {
     border: 1px solid var(--secondary-color);
     background: var(--primary-color);
@@ -150,24 +228,6 @@ body {
     border-radius: 3px;
 }
 
-.choices{
-    display: flex;
-    justify-content: center;
-    gap: 160px;
-    margin-bottom: 18px;
-    /* border-bottom: 3px solid var(--question-color); */
-}
-
-.choices select{
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 4px;
-    padding: 5px;
-}
-
 .results button:hover{
     background-color: #3A3AA1;
 }
@@ -175,11 +235,19 @@ body {
     .card{
         width: 95%;
     }
+
+    .popup{
+        width: 90vw;
+    }
 }
 
 @media only screen and (min-width:390px) and (max-width:570px) {
     .card{
         width: 90%;
+    }
+
+    .popup{
+        width: 85vw;
     }
 }
 
@@ -187,10 +255,22 @@ body {
     .card{
         width: 65vw;
     }
+
+    .popup{
+        width: 60vw;
+    }
 }
 
 @media only screen and (min-width:851px) and (max-width:957px) {
     .card{
         width: 60vw;
     }
+
+    .popup{
+        width: 40vw;
+    }
+}
+
+.hidden{
+    display: none;
 }

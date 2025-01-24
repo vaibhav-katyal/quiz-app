@@ -2,34 +2,53 @@ const ques = document.querySelector(".question")
 const next_btn = document.querySelector(".nxt-btn button")
 const options = document.querySelectorAll(".opt")
 const dark_mode = document.querySelector(".heading button")
-const lang = document.querySelector(".lang select")
-const no_of_ques = document.querySelector(".noques select")
+const lang = document.getElementById("lang")
+const no_of_ques = document.getElementById("noofques")
+const gen_quiz = document.querySelector(".gen-quiz button")
 
 let currQues = 0;
-const MaxQues = no_of_ques.value;
 let score = 0;
+
+let lang1;
+let MaxQues = 0;
+let data = [];
+
+gen_quiz.addEventListener("click", async(e)=>{
+    e.preventDefault();
+
+    document.querySelector(".popup").classList.add("hidden");
+    document.querySelector(".card").classList.remove("hidden");
+
+    document.querySelector(".heading h3").innerHTML = `${lang.value} Quiz`
+    MaxQues = no_of_ques.value;
+    lang1 = lang.value;
+    await fetchData();
+})
 
 async function fetchData(){
 
     let response;
-    if(lang.value == "C++"){
+    console.log("Fetching data for:", lang1);
+    if(lang1 === "C++"){
         response = await fetch('cpp.json')
     }
-    else if(lang.value == "Python"){
+    else if(lang1 === "Python"){
         response = await fetch('python.json')
     }
-    else if(lang.value == "C"){
+    else if(lang1 === "C"){
         response = await fetch('c.json')
     }
-    else if(lang.value == "Java"){
+    else if(lang1 === "Java"){
         response = await fetch('java.json')
     }
-    else if(lang.value == "JavaScript"){
+    else if(lang1 === "JavaScript"){
         response = await fetch('javascript.json')
     }
 
-    window.data = await response.json();
-    ShowQuestion();
+    data = await response.json();
+
+    console.log("Data fetched:", data);
+    await ShowQuestion();
 }
 
 const savedTheme = localStorage.getItem("theme");

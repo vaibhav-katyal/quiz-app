@@ -8,19 +8,22 @@
 </head>
 <body>
     <div class="main">
-        <div class="card">
+        <div class="popup">
+            <h2>Select Quiz Details</h2>
             <div class="choices">
                 <div class="lang">
+                    <span>Select Programming Language:</span>
                     <select name="Select the Language" id="lang">
                         <option value="Python">Python</option>
-                        <option value="Cpp">C</option>
-                        <option value="Cpp">C++</option>
-                        <option value="java">Java</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="Java">Java</option>
                         <option value="JavaScript">JavaScript</option>
                     </select>
                 </div>
     
                 <div class="noques">
+                    <span>Select Number of Questions:</span>
                     <select name="No. of Questions" id="noofques">
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -29,6 +32,12 @@
                     </select>
                 </div>
             </div>
+
+            <div class="gen-quiz">
+                <button>Generate Quiz</button>
+            </div>
+        </div>
+        <div class="card hidden">
             <div class="heading">
                 <h3>C++ Quiz</h3>
                 <div class="dark-mode">
